@@ -4,6 +4,7 @@ namespace Package\Raxon\Videoplayer\Trait;
 use Raxon\App;
 use Raxon\Config;
 
+use Raxon\Doctrine\Module\Database;
 use Raxon\Exception\DirectoryCreateException;
 
 use Raxon\Module\Cli;
@@ -189,6 +190,41 @@ trait Main {
                 }                
             }
         }
+        if(!property_exists($options, 'environment')){
+            $options->environment = $object->config('framework.environment');
+        }
+        if(!property_exists($options, 'connection')){
+            $options->connection = 'system';
+        }
+        $config = Database::config($object);
+        $connection = $object->config('doctrine.environment.' . $options->connection . '.' . $options->environment);
+        if($connection === null){
+            $connection = $object->config('doctrine.environment.' . $options->connection . '.' . '*');
+        }
+        $connection->manager = Database::entity_manager($object, $config, $connection);
+
+        $repository = $connection->manager->getRepository('\\Entity\\Extension');
+        $property = 'name';
+        $value = [
+            'mp4',
+            'webm',
+        ];
+        $list = $repository->findBy([
+            $property => $value
+        ]);
+        dd($list);
+
+        //need connection
+
+/*
+
+        //enable application extensions allowed movietypes:
+            case 'mp4' :
+                    return 'video/mp4';
+            case 'webm' :
+                return 'video/webm';
+*/
+
         $command = 'app install raxon/account -patch';
         Core::execute($object, $command, $output, $notification);
         if($output){
