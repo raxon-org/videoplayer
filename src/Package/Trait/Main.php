@@ -203,6 +203,7 @@ trait Main {
         }
         $connection->manager = Database::entity_manager($object, $config, $connection);
 
+        /*
         $repository = $connection->manager->getRepository('\\Entity\\Extension');
         $property = 'name';
         $value = [
@@ -255,7 +256,7 @@ trait Main {
                 dd('none');
             }
         }
-
+        */
 /*
 
         //enable application extensions allowed movietypes:
