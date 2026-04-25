@@ -209,16 +209,15 @@ trait Main {
             'mp4',
             'webm',
         ];
-        foreach($value as $nr => $extension){
+        foreach($value as $nr => $extension) {
             $record = $repository->findOneBy([
                 $property => $extension
             ]);
-            ddd($record);
+            if ($record) {
+                $applications = $record->getApplications();
+                ddd($applications);
+            }
         }
-
-        dd($list);
-
-        //need connection
 
 /*
 
