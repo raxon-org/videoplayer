@@ -216,11 +216,35 @@ trait Main {
             if ($record) {
                 $applications = $record->getApplications();
                 if($applications->count() > 0){
+                    $is_found = false;
                     $list = $applications->toArray();
                     foreach($list as $nr => $application){
-                        if($application->getUrl() === '{{route.get(\'application-audio-player\')}}'){
-                            ddd('Found');
+                        if($application->getUrl() === '{{route.get(\'application-video-player\')}}'){
+                            $is_found = true;
                         }
+                    }
+                    if($is_found === false){
+                        $entity_application = new \Entity\Application();
+                        $entity_application->setUrl('{{route.get(\'application-video-player\')}}');
+                        $entity_application->setName('Video Player');
+                        $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
+
+//                        $connection->manager->persist($entity_application);
+//                        $connection->manager->flush();
+
+
+
+
+                        $entity_extension = new \Entity\Extension();
+                        $entity_extension->setName($extension);
+                        $connection->manager->persist($entity_application);
+                        $connection->manager->flush();
+
+                        dd(($entity_extension->getId()));
+
+
+
+
                     }
                     //check if videoplayer is already installed
                     ddd($applications->count());
