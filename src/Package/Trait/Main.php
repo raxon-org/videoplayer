@@ -217,7 +217,11 @@ trait Main {
                 $applications = $record->getApplications();
                 if($applications->count() > 0){
                     $list = $applications->toArray();
-                    ddd($list);
+                    foreach($list as $nr => $application){
+                        if($application->getUrl() === '{{route.get(\'application-audio-player\')}}'){
+                            ddd('Found');
+                        }
+                    }
                     //check if videoplayer is already installed
                     ddd($applications->count());
                 } else {
