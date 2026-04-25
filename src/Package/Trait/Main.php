@@ -209,9 +209,13 @@ trait Main {
             'mp4',
             'webm',
         ];
-        $list = $repository->findBy([
-            $property => $value
-        ]);
+        foreach($value as $nr => $extension){
+            $record = $repository->findOneBy([
+                $property => $extension
+            ]);
+            ddd($record);
+        }
+
         dd($list);
 
         //need connection
