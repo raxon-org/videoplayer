@@ -216,6 +216,8 @@ trait Main {
             if ($record) {
                 $applications = $record->getApplications();
                 if($applications->count() > 0){
+                    $list = $applications->toArray();
+                    ddd($list);
                     //check if videoplayer is already installed
                     ddd($applications->count());
                 } else {
