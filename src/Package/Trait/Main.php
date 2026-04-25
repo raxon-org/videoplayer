@@ -204,6 +204,8 @@ trait Main {
         $connection->manager = Database::entity_manager($object, $config, $connection);
 
         /*
+         * on staging we have a new menu on raxon, we have an old desktop menu.
+         *
         $repository = $connection->manager->getRepository('\\Entity\\Extension');
         $property = 'name';
         $value = [
