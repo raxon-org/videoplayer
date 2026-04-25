@@ -237,7 +237,7 @@ trait Main {
 
                         $entity_extension = new \Entity\Extension();
                         $entity_extension->setName($extension);
-                        $connection->manager->persist($entity_application);
+                        $connection->manager->persist($entity_extension);
                         $connection->manager->flush();
 
                         dd(($entity_extension->getId()));
