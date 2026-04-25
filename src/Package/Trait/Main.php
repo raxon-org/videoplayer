@@ -213,7 +213,6 @@ trait Main {
             $record = $repository->findOneBy([
                 $property => $extension
             ]);
-            breakpoint($record);
             if ($record) {
                 $applications = $record->getApplications();
                 if($applications->count() > 0){
@@ -252,6 +251,8 @@ trait Main {
                 } else {
                     ddd('none');
                 }
+            } else {
+                dd('none');
             }
         }
 
