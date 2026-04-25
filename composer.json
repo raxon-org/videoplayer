@@ -1,0 +1,15 @@
+{
+    "name" : "raxon/videoplayer",
+    "description" : "raxon/videoplayer see https://raxon.org for detailed usage",
+    "type" : "application",
+    "keywords" : ["application", "videoplayer", "workspace","raxon", "library", "framework", "domain","raxon.org"],
+    "homepage": "https://raxon.org",
+    "require" : {
+        "raxon/framework": ">=2024.09.04"
+    },
+    "license" : "MIT",
+    "authors" : [{
+        "name" : "Remco van der Velde",
+        "email" : "development@universeorange.com"
+    }]
+}
