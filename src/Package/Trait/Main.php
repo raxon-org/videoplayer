@@ -203,13 +203,12 @@ trait Main {
         }
         $connection->manager = Database::entity_manager($object, $config, $connection);
         $repository = $connection->manager->getRepository('\\Entity\\Extension');
-        $property = 'name';
         $extensions = [
             'mp4',
             'webm',
         ];
         $list =$repository->findBy([
-            $property => $extensions
+            'name' => $extensions
         ]);
         $list_application = [];
         foreach($list as $nr => $extension){
@@ -220,13 +219,20 @@ trait Main {
             }
             if(!in_array(self::NAME, $list_application, true)){
                 //adding application to the extension and add extensions to the application
-                $entity_application = new \Entity\Application();
-                $entity_application->setUrl('{{route.get(\'application-video-player\')}}');
-                $entity_application->setName(self::NAME);
-                $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
-                $entity_application->setExtensions($list);
-                $connection->manager->persist($entity_application);
-                $connection->manager->flush();
+                $repository = $connection->manager->getRepository('\Entity\Application');
+                $application_url = '{{route.get(\'application-video-player\')}}';
+                $entity_application = $repository->findOneBy([
+                    'url' => $application_url
+                ]);
+                if(!$entity_application){
+                    $entity_application = new \Entity\Application();
+                    $entity_application->setUrl('{{route.get(\'application-video-player\')}}');
+                    $entity_application->setName(self::NAME);
+                    $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
+                    $entity_application->setExtensions($list);
+                    $connection->manager->persist($entity_application);
+                    $connection->manager->flush();
+                }
                 ddd($entity_application->getId());
             }
         }
