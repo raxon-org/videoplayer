@@ -231,7 +231,7 @@ trait Main {
                     $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
                     $entity_application->setExtensions($list);
                     $connection->manager->persist($entity_application);
-                    $connection->manager->flush();
+//                    $connection->manager->flush();
                 }
                 $extension->addApplications($entity_application);
                 $connection->manager->persist($extension);
