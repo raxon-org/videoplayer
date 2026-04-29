@@ -213,6 +213,7 @@ trait Main {
         ]);
         foreach($list as $nr => $extension){
             d($extension->getName());
+            d($extension->getApplications());
         }
 
 
