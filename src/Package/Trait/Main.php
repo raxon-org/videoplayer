@@ -212,8 +212,12 @@ trait Main {
             $property => $extensions
         ]);
         foreach($list as $nr => $extension){
+            $applications = $extension->getApplications();
             d($extension->getName());
-            d($extension->getApplications());
+            foreach($applications as $nr => $application){
+                breakpoint($application->getName());
+            }
+
         }
 
 
