@@ -236,7 +236,10 @@ trait Main {
                 $extension->addApplications($entity_application);
                 $connection->manager->persist($extension);
                 $connection->manager->flush();
-                ddd($extension->getApplications());
+                $applications = $extension->getExtensions();
+                foreach($applications as $application){
+                    breakpoint($application->getName());
+                }
             }
         }
 
