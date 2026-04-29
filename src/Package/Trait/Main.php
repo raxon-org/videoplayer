@@ -202,6 +202,21 @@ trait Main {
             $connection = $object->config('doctrine.environment.' . $options->connection . '.' . '*');
         }
         $connection->manager = Database::entity_manager($object, $config, $connection);
+        $repository = $connection->manager->getRepository('\\Entity\\Extension');
+        $property = 'name';
+        $extensions = [
+            'mp4',
+            'webm',
+        ];
+        $list =$repository->findBy([
+            $property => $extensions
+        ]);
+        foreach($list as $nr => $extension){
+            d($extension->getName());
+        }
+
+
+
 
         /*
          * on staging we have a new menu on raxon, we have an old desktop menu.

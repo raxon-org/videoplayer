@@ -8,7 +8,6 @@ let player = {};
 
 player.init = (id) => {
     taskbar.add('application-video-player', id);
-
     player.menu(id);
     player.menu_application(id);
     player.player(id);
