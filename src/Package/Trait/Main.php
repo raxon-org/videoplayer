@@ -211,13 +211,23 @@ trait Main {
         $list =$repository->findBy([
             $property => $extensions
         ]);
+        $list_application = [];
         foreach($list as $nr => $extension){
             $applications = $extension->getApplications();
             d($extension->getName());
             foreach($applications as $nr => $application){
-                breakpoint($application->getName());
+                $list_application[] = $application->getName();
             }
-
+            if(!in_array(self::NAME, $list_application, true)){
+                //adding application to the extension and add extensions to the application
+                $entity_application = new \Entity\Application();
+                $entity_application->setUrl('{{route.get(\'application-video-player\')}}');
+                $entity_application->setName(self::NAME);
+                $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
+                $entity_application->setExtensions($list);
+                $connection->manager->persist($entity_application);
+                ddd($entity_application->getId());
+            }
         }
 
 
