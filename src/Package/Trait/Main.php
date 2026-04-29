@@ -232,6 +232,9 @@ trait Main {
                     $entity_application->setExtensions($list);
                     $connection->manager->persist($entity_application);
 //                    $connection->manager->flush();
+                } else {
+                    $entity_application->setExtensions($list);
+                    $connection->manager->persist($entity_application);
                 }
                 $extension->addApplications($entity_application);
                 $connection->manager->persist($extension);
