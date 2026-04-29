@@ -226,6 +226,7 @@ trait Main {
                 $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
                 $entity_application->setExtensions($list);
                 $connection->manager->persist($entity_application);
+                $connection->manager->flush();
                 ddd($entity_application->getId());
             }
         }
