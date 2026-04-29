@@ -231,7 +231,6 @@ trait Main {
                     $entity_application->iconUrl('/Application/VideoPlayer/Icon/Icon.png');
                     $entity_application->setExtensions($list);
                     $connection->manager->persist($entity_application);
-//                    $connection->manager->flush();
                 } else {
                     $entity_application->setExtensions($list);
                     $connection->manager->persist($entity_application);
@@ -239,10 +238,6 @@ trait Main {
                 $extension->addApplications($entity_application);
                 $connection->manager->persist($extension);
                 $connection->manager->flush();
-                $applications = $extension->getApplications();
-                foreach($applications as $application){
-                    breakpoint($application->getName());
-                }
             }
         }
 
