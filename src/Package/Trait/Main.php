@@ -233,7 +233,7 @@ trait Main {
                     $connection->manager->persist($entity_application);
                     $connection->manager->flush();
                 }
-                $extension->addApplication($entity_application);
+                $extension->addApplications($entity_application);
                 $connection->manager->persist($extension);
                 $connection->manager->flush();
             }
