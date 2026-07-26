@@ -210,6 +210,7 @@ trait Main {
         $list =$repository->findBy([
             'name' => $extensions
         ]);
+        ddd($list);
         $list_application = [];
         foreach($list as $nr => $extension){
             $applications = $extension->getApplications();
