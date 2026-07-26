@@ -214,7 +214,9 @@ trait Main {
         foreach($list as $nr => $extension){
             $applications = $extension->getApplications();
             foreach($applications as $application_nr => $application){
-                $list_application[] = $application->getName();
+                if(!in_array($application->getName(), $list_application, true)){
+                    $list_application[] = $application->getName();
+                }
             }
             breakpoint($list_application);
             if(!in_array(self::NAME, $list_application, true)){
