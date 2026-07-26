@@ -210,14 +210,13 @@ trait Main {
         $list =$repository->findBy([
             'name' => $extensions
         ]);
-        ddd($list);
         $list_application = [];
         foreach($list as $nr => $extension){
             $applications = $extension->getApplications();
-            d($extension->getName());
-            foreach($applications as $nr => $application){
+            foreach($applications as $application_nr => $application){
                 $list_application[] = $application->getName();
             }
+            breakpoint($list_application);
             if(!in_array(self::NAME, $list_application, true)){
                 //adding application to the extension and add extensions to the application
                 $repository = $connection->manager->getRepository('\Entity\Application');
