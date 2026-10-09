@@ -6,8 +6,8 @@ section[name="application-video-player"] {
 section[name="application-video-player"] .dialog {
     width: 900px;
     height: 850px;
-    top: calc(50% - 100px);
-    left: calc(50% - 200px);
+    top: 10px;
+    left: calc(50% - 450px);
 }
 
 section[name="application-video-player"] .head {
