@@ -119,6 +119,7 @@ player.player = (id) => {
     console.log(source.src);
     const body = section.select('.body');
     body.appendChild(video);
+    /*
     video = _('_').create('video');
     video.crossOrigin='anonymous';
     video.autoplay=true
@@ -139,6 +140,7 @@ player.player = (id) => {
     audio.appendChild(source_audio);
     body.appendChild(video);
     body.appendChild(audio);
+     */
 }
 
 export { player }
