@@ -1,6 +1,6 @@
 {{$options = options()}}
 <?php
-namespace Domain\{{php.namespace.host($options.frontend.host)}}\Application\VideoPlayer\Controller;
+namespace Domain\{{php.namespace.host($options.frontend.host)}}\Application\Videoplayer\Controller;
 
 use Raxon\App;
 

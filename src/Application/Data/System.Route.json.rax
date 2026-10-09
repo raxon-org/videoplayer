@@ -3,9 +3,9 @@
         "Route": [
             {
                 "name": "application-video-player",
-                "path": "\/Application\/VideoPlayer\/",
+                "path": "\/Application\/Videoplayer\/",
                 "host": "{{options('frontend.host')}}",
-                "controller": "Domain:{{app.controller.host(options('frontend.host'))}}:Application:VideoPlayer:Controller:Player:main",
+                "controller": "Domain:{{app.controller.host(options('frontend.host'))}}:Application:Videoplayer:Controller:Player:main",
                 "priority": 3001,
                 "method": [
                     "GET",
@@ -14,7 +14,7 @@
             },
             {
                 "name": "application-video-player-icon",
-                "url": "\/Application\/VideoPlayer\/Icon\/Icon.png",
+                "url": "\/Application\/Videoplayer\/Icon\/Icon.png",
                 "host": "{{options('frontend.host')}}",
                 "priority": 3002
             }

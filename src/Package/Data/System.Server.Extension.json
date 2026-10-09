@@ -1,0 +1,18 @@
+{
+  "System": {
+    "Server": {
+      "Extension": [
+          {
+            "description": "Webm file",
+            "name": "webm",
+            "extension": ".webm"
+          },
+          {
+            "description": "Mp4 file",
+            "name": "mp4",
+            "extension": ".mp4"
+          }
+      ]
+    }
+  }
+}

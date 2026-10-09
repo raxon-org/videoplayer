@@ -1,0 +1,18 @@
+{
+  "System": {
+    "Server": {
+      "ContentType": [
+          {
+            "description": "Content-Type for mp4 file",
+            "content_type": "video/mp4",
+            "extension": ".mp4"
+          },
+          {
+            "description": "Content-Type for webm file",
+            "content_type": "video/webm",
+            "extension": ".webm"
+          }
+      ]
+    }
+  }
+}
