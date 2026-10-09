@@ -2,11 +2,11 @@
 import { version } from "/Module/Priya.js";
 import { root } from "/Module/Web.js";
 import { dialog } from "/Dialog/Module/Dialog.js";
-import { player } from "/Application/VideoPlayer/Module/Player.js"
+import { player } from "/Application/Videoplayer/Module/Player.js"
 import { taskbar } from "/Application/Desktop/Module/Taskbar.js";
 require(
     [
-        root() + 'Application/VideoPlayer/Css/Player.css?' + version(),
+        root() + 'Application/Videoplayer/Css/Player.css?' + version(),
         root() + 'Dialog/Css/Dialog.css?' + version(),
     ],
     function(){
