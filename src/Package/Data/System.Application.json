@@ -6,12 +6,14 @@
         "display": {
           "name": "Video Player"
         },
+        "flags": "{{flags()}}",
+        "options": "{{options()}}",
         "package": "raxon/{{$this.name|>string.lowercase}}",
         "route": {
           "name": "application-video-player"
         },
-        "frontend": "{{Package.Raxon.Videoplayer:Setup:install.frontend.get(options())}}",
-        "backend": "{{Package.Raxon.Videoplayer:Setup:install.backend.get(options())}}",
+        "frontend": "{{Package.Raxon.Videoplayer:Setup:install.frontend.get($options)}}",
+        "backend": "{{Package.Raxon.Videoplayer:Setup:install.backend.get($options)}}",
         "directory": {
           "application": "Application/{{$this.#parentNode.#parentNode.name}}/"
         },
@@ -27,8 +29,8 @@
         "target": null,
         "description": "Photo viewer (Viewing jpg, png & bmp, webp)",
         "icon": "Application/{{$this.name}}/Icon/Icon.png",
-        "user": "{{Package.Raxon.Videoplayer:Setup:user.list(flags(), options(), $this)}}",
-        "extension": "{{Package.Raxon.Videoplayer:Setup:extension.list(flags(), options(), $this)}}"
+        "user": "{{Package.Raxon.Videoplayer:Setup:user.list($flags, $options, $this)}}",
+        "extension": "{{Package.Raxon.Videoplayer:Setup:extension.list($flags, $options, $this)}}"
       }
     ]
   }
