@@ -145,6 +145,13 @@ section[name="application-video-player"] .body {
     text-align: center;
 }
 
+section[name="application-video-player"] .body video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 section[name="application-video-player"] .footer {
     width: 100%;
     height: 30px;
