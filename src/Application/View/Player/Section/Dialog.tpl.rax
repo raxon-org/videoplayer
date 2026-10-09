@@ -33,7 +33,7 @@
     <div class="body">
         {{$source.request = $request.file}}
         {{$source.request = $source.request|>url.encode}}
-        {{$source.src = server.url("{{/literal}}{{$backend.host}}{{literal}}\") + 'FileSystem/?url='+ $source.request}}
+        {{$source.src = server.url("{{/literal}}{{$backend.host}}{{literal}}") + 'FileSystem/?url='+ $source.request}}
         {{$source.type = source.type($request.file)}}
         <input type="hidden" name="node.url" value="{{$request.file}}" />
         <input type="hidden" name="node.source" value="{{$source.src}}" />
